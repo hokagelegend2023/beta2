@@ -174,6 +174,7 @@ sleep 3
 
 mkdir -p /etc/hokage
 mkdir -p /etc/hokage/theme
+mkdir /var/lib/hokage;
 mkdir -p /var/lib/hokage-pro >/dev/null 2>&1
 echo "IP=" >> /var/lib/hokage-pro/ipvps.conf
 
