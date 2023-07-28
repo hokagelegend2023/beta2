@@ -2,17 +2,17 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
-colornow=$(cat /etc/yokkovpn/theme/color.conf)
+colornow=$(cat /etc/hokage/theme/color.conf)
 NC="\e[0m"
 RED="\033[0;31m" 
-COLOR1="$(cat /etc/yokkovpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/yokkovpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"                    
+COLOR1="$(cat /etc/hokage/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/hokage/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"                    
 ###########- END COLOR CODE -##########
 
 
 
 BURIQ () {
-    curl -sS https://raw.githubusercontent.com/Khoiril7/permission/main/ipmini > /root/tmp
+    curl -sS https://raw.githubusercontent.com/hokagelegend2023/ipmini/main/ijin > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
     for user in "${data[@]}"
     do
@@ -30,7 +30,7 @@ BURIQ () {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/Khoiril7/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/hokagelegend2023/ipmini/main/ijin | grep $MYIP | awk '{print $2}')
 echo $Name > /usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -47,7 +47,7 @@ fi
 
 PERMISSION () {
     MYIP=$(curl -sS ipv4.icanhazip.com)
-    IZIN=$(curl -sS https://raw.githubusercontent.com/Khoiril7/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/hokagelegend2023/ipmini/main/ijin | awk '{print $4}' | grep $MYIP)
     if [ "$MYIP" = "$IZIN" ]; then
     Bloman
     else
@@ -73,14 +73,14 @@ echo -e " $COLOR1│$NC"
 echo -e " $COLOR1│$NC  $COLOR1 [00]$NC • GO BACK"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • BONDOWOSO VPN STORE •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • HOKAGE LEGEND STORE •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -p "  Select Options :  " colormenu 
 case $colormenu in
 01 | 1)
 clear
-echo "blue" >/etc/yokkovpn/theme/color.conf
+echo "blue" >/etc/hokage/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}                • BLUE THEME •                 ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -90,12 +90,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM BLUE Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • KHOIRIL ANAM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • HOKAGE LEGEND •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"                                                                                                                          
 ;;
 02 | 2)
 clear
-echo "red" >/etc/yokkovpn/theme/color.conf
+echo "red" >/etc/hokage/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}                • RED THEME •                  ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -105,12 +105,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM RED Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • KHOIRIL ANAM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • HOKAGE LEGEND •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 03 | 3)
 clear
-echo "yellow" >/etc/yokkovpn/theme/color.conf
+echo "yellow" >/etc/hokage/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • YELLOW THEME •                ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -120,12 +120,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM YELLOW Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • BONDOWOSO VPN STORE •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • HOKAGE LEGEND STORE •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 04 | 4)
 clear
-echo "cyan" >/etc/yokkovpn/theme/color.conf
+echo "cyan" >/etc/hokage/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}                • CYAN THEME •                 ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -135,12 +135,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM CYAN Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • KHOIRIL ANAM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • HOKAGE LEGEND •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 05 | 5)
 clear
-echo "green" >/etc/yokkovpn/theme/color.conf
+echo "green" >/etc/hokage/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • GREEN THEME •                 ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -150,12 +150,12 @@ echo -e " $COLOR1│$NC [INFO] TEAM GREEN Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • KHOIRIL ANAM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • HOKAGE LEGEND •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 06 | 6)
 clear
-echo "magenta" >/etc/yokkovpn/theme/color.conf
+echo "magenta" >/etc/hokage/theme/color.conf
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • MAGENTA THEME •               ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -165,7 +165,7 @@ echo -e " $COLOR1│$NC [INFO] TEAM MAGENTA Active Successfully"
 echo -e " $COLOR1│$NC"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                • KHOIRIL ANAM •          $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                • HOKAGE LEGEND •          $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 ;;
 00 | 0)
