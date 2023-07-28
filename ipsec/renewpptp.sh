@@ -1,5 +1,5 @@
 #!/bin/bash
-# SL
+# Hokage
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -23,7 +23,7 @@ echo -e "${NC}${LIGHT}Fuck You!!"
 exit 0
 fi
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/var/lib/crot/data-user-pptp")
+NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/var/lib/hokage/data-user-pptp")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
 		echo ""
@@ -36,7 +36,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/var/lib/crot/data-user-pptp")
 	echo "Select the existing client you want to renew"
 	echo " Press CTRL+C to return"
 	echo -e "==============================="
-	grep -E "^### " "/var/lib/crot/data-user-pptp" | cut -d ' ' -f 2-3 | nl -s ') '
+	grep -E "^### " "/var/lib/hokage/data-user-pptp" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
 			read -rp "Select one client [1]: " CLIENT_NUMBER
@@ -45,15 +45,15 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/var/lib/crot/data-user-pptp")
 		fi
 	done
 read -p "Expired (Days): " masaaktif
-user=$(grep -E "^### " "/var/lib/crot/data-user-pptp" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
-exp=$(grep -E "^### " "/var/lib/crot/data-user-pptp" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
+user=$(grep -E "^### " "/var/lib/hokage/data-user-pptp" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
+exp=$(grep -E "^### " "/var/lib/hokage/data-user-pptp" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 now=$(date +%Y-%m-%d)
 d1=$(date -d "$exp" +%s)
 d2=$(date -d "$now" +%s)
 exp2=$(( (d1 - d2) / 86400 ))
 exp3=$(($exp2 + $masaaktif))
 exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
-sed -i "s/### $user $exp/### $user $exp4/g" /var/lib/crot/data-user-pptp
+sed -i "s/### $user $exp/### $user $exp4/g" /var/lib/hokage/data-user-pptp
 clear
 echo ""
 echo "=========================="
@@ -62,4 +62,4 @@ echo "=========================="
 echo "Username  : $user"
 echo "Expired   : $exp4"
 echo "=========================="
-echo "Script Mod By SL"
+echo "Script By HOKAGE LEGEND"
