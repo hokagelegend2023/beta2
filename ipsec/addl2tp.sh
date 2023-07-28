@@ -1,5 +1,5 @@
 #!/bin/bash
-# SL
+# Hokage
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -28,7 +28,7 @@ PUBLIC_IP=$(wget -qO- ipinfo.io/ip);
 else
 PUBLIC_IP=$IP
 fi
-source /var/lib/crot/ipvps.conf
+source /var/lib/hokage-pro /ipvps.conf
 if [[ "$IP2" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 else
@@ -62,7 +62,7 @@ EOF
 
 # Update file attributes
 chmod 600 /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
-echo -e "### $VPN_USER $exp">>"/var/lib/crot/data-user-l2tp"
+echo -e "### $VPN_USER $exp">>"/var/lib/hokage/data-user-l2tp"
 cat <<EOF
 
 ============================
@@ -76,5 +76,5 @@ Password   : $VPN_PASSWORD
 Created    : $hariini
 Expired    : $exp
 ============================
-Script Mod By SL
+Script By Hokage
 EOF
