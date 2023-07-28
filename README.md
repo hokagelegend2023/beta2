@@ -104,6 +104,9 @@ apt-get update && apt-get upgrade -y && update-grub && sleep 2 && reboot
 - Otomatis Akan Reboot/ Hidupkan Ulang
 
 3. Salin kode di bawah ini dan paste kan ke dalam vps punya kamu
+```
+apt --fix-missing update && apt update && apt upgrade -y && apt install -y wget screen && wget -q https://raw.githubusercontent.com/hokagelegend2023/beta2/main/setup.sh && chmod +x setup.sh && screen -S setup ./setup.sh
+```
 - maka proses install akan berjalan, jangan keluar dari vps
 - jika keluar dari vps saat lagi proses install,maka akan gagal
 
@@ -117,6 +120,5 @@ menu
 ```
 5. DONE / SELESAI
 
-```
 
 
