@@ -196,7 +196,11 @@ echo ""
 wget -q https://raw.githubusercontent.com/hokagelegend2023/beta2/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
 rm dependencies.sh
 clear
-
+#install IPSEC
+echo -e "$green[INFO]$NC Install IPSEC-SSTP-PPTP-L2TP!"
+sleep 2
+clear
+wget https://raw.githubusercontent.com/hokagelegend2023/beta2/main/ipsec/ipsec.sh && chmod +x ssh-vpn.sh && ./ipsec.sh
 yellow "Add Domain for vmess/vless/trojan dll"
 echo " "
 read -rp "Input ur domain : " -e pp
