@@ -107,6 +107,13 @@ else
     status_dropbear="${RED}OFF${NC}"
 fi
 
+# // SSH PPTP
+pptp=$( systemctl status pptpd | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $xray == "running" ]]; then
+    status_pptp="${GREEN}ON${NC}"
+else
+    status_pptp="${RED}OFF${NC}"
+fi
 
 
 function add-host(){
@@ -191,7 +198,7 @@ echo -e   "$COLOR1└───────────────────�
 echo -e   "$COLOR1┌────────────────────────────────────────────────────────┐${NC}"
 echo -e   "$COLOR1│$NC [ SSH WS : ${status_ws} ]      [ XRAY : ${status_xray} ]   [ NGINX : ${status_nginx} ]    $COLOR1│$NC"
 echo -e   "$COLOR1│$NC                                                        $COLOR1│$NC"
-echo -e   "$COLOR1│$NC [ SW-SHOCK : ${status_xray} ]  [ DROPBEAR : ${status_dropbear} ]   [ NGINX : ${status_nginx} ]  $COLOR1│$NC"
+echo -e   "$COLOR1│$NC [ SW-SHOCK : ${status_xray} ]  [ DROPBEAR : ${status_dropbear} ]   [ PPTP : ${status_pptp} ]  $COLOR1│$NC"
 echo -e   "$COLOR1│$NC                                                        $COLOR1│$NC"
 echo -e   "$COLOR1└────────────────────────────────────────────────────────┘${NC}"
 echo -e   "$COLOR1┌───────────────────────────────────────────────────────┐${NC}"
@@ -202,7 +209,7 @@ echo -e "${COLOR1}│  [04]${NC} • TROJAN       [${YELLOW}Menu${NC}]   ${COLOR
 echo -e "${COLOR1}│  [05]${NC} • SW-Shock     [${YELLOW}Menu${NC}]   ${COLOR1}[11]${NC} • SETTINGS [${YELLOW}Menu${NC}]  $COLOR1│$NC"
 echo -e "${COLOR1}│  [06]${NC} • SET DNS      [${YELLOW}Menu${NC}]   ${COLOR1}[12]${NC} • INFO     [${YELLOW}Menu${NC}]  $COLOR1│$NC"
 echo -e "${COLOR1}│  [13]${NC} • REG IP       [${YELLOW}Menu${NC}]   ${COLOR1}[14]${NC} • SET BOT  [${YELLOW}Menu${NC}]  $COLOR1│$NC"
-echo -e "${COLOR1}│  [15]${NC} • UPDATE MENU  [${YELLOW}Menu${NC}]                           $COLOR1│$NC"
+echo -e "${COLOR1}│  [15]${NC} • UPDATE MENU  [${YELLOW}Menu${NC}]   ${COLOR1}[16]${NC} • PPTP     [${YELLOW}Menu${NC}]  $COLOR1│$NC"
 
 if [ "$Isadmin" = "ON" ]; then
 echo -e "${COLOR1}│                                                       $COLOR1│$NC"
@@ -264,6 +271,7 @@ case $opt in
 13) clear ; $ressee ;;
 14) clear ; $bottt ;;
 15 | 15) clear ; update_beta2 ;;
+16 | 16) clear ; pptpmenu ;;
 100) clear ; $up2u ;;
 00 | 0) clear ; menu ;;
 *) clear ; menu ;;
