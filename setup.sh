@@ -243,7 +243,7 @@ EOF
 echo -e "$green[INFO]$NC Install IPSEC-SSTP-PPTP-L2TP!"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/hokagelegend2023/beta2/main/ipsec/ipsec.sh && chmod +x ssh-vpn.sh && ./ipsec.sh 
+wget https://raw.githubusercontent.com/hokagelegend2023/beta2/main/ipsec/ipsec.sh && chmod +x ipsec.sh && ./ipsec.sh 
 #install ssh ovpn
 echo -e "$green[INFO]$NC Install SSH & OpenVPN!"
 sleep 2
