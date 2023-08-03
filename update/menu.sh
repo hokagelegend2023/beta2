@@ -99,6 +99,16 @@ else
     status_xray="${RED}OFF${NC}"
 fi
 
+# // SSH Websocket Proxy
+dropbear=$( systemctl status dropbear | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $xray == "running" ]]; then
+    status_dropbear="${GREEN}ON${NC}"
+else
+    status_dropbear="${RED}OFF${NC}"
+fi
+
+
+
 function add-host(){
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -168,9 +178,9 @@ uis="${RED}Free Version$NC"
 fi
 echo -e "$COLOR1│$NC User Roles     : $uis                       $COLOR1│$NC"
 if [ "$cekup" = "day" ]; then
-echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes $uptimecek      $COLOR1│$NC"
+echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes $uptimecek           $COLOR1│$NC"
 else
-echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes                 $COLOR1│$NC"
+echo -e "$COLOR1│$NC System Uptime  : $uphours $upminutes                       $COLOR1│$NC"
 fi
 echo -e   "$COLOR1│$NC Memory Usage   : $uram / $tram                        $COLOR1│$NC"
 echo -e   "$COLOR1│$NC ISP            : $ISP  $COLOR1│$NC"
@@ -178,18 +188,18 @@ echo -e   "$COLOR1│$NC City           : $CITY                          $COLOR1
 echo -e   "$COLOR1│$NC Current Domain : $(cat /etc/xray/domain)          $COLOR1│$NC"
 echo -e   "$COLOR1│$NC IP-VPS         : ${COLOR1}$IPVPS${NC}                      $COLOR1│$NC"
 echo -e   "$COLOR1└─────────────────────────────────────────────────────┘${NC}"
-echo -e   "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e   "$COLOR1│$NC [ SSH WS : ${status_ws} ]  [ XRAY : ${status_xray} ]   [ NGINX : ${status_nginx} ] $COLOR1│$NC"
-echo -e   "$COLOR1│$NC                                                 $COLOR1│$NC"
-echo -e   "$COLOR1│$NC [ SSH WS : ${status_ws} ]  [ XRAY : ${status_xray} ]   [ NGINX : ${status_nginx} ] $COLOR1│$NC"
-echo -e   "$COLOR1│$NC                                                 $COLOR1│$NC"
-echo -e   "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e   "$COLOR1┌────────────────────────────────────────────────────────┐${NC}"
+echo -e   "$COLOR1│$NC [ SSH WS : ${status_ws} ]      [ XRAY : ${status_xray} ]   [ NGINX : ${status_nginx} ]    $COLOR1│$NC"
+echo -e   "$COLOR1│$NC                                                        $COLOR1│$NC"
+echo -e   "$COLOR1│$NC [ SW-SHOCK : ${status_xray} ]  [ DROPBEAR : ${status_dropbear} ]   [ NGINX : ${status_nginx} ]  $COLOR1│$NC"
+echo -e   "$COLOR1│$NC                                                        $COLOR1│$NC"
+echo -e   "$COLOR1└────────────────────────────────────────────────────────┘${NC}"
 echo -e   "$COLOR1┌───────────────────────────────────────────────────────┐${NC}"
 echo -e "${COLOR1}│  [01]${NC} • SSHWS        [${YELLOW}Menu${NC}]   ${COLOR1}[07]${NC} • THEME    [${YELLOW}Menu${NC}]  $COLOR1│$NC"   
 echo -e "${COLOR1}│  [02]${NC} • VMESS        [${YELLOW}Menu${NC}]   ${COLOR1}[08]${NC} • BACKUP   [${YELLOW}Menu${NC}]  $COLOR1│$NC"  
 echo -e "${COLOR1}│  [03]${NC} • VLESS        [${YELLOW}Menu${NC}]   ${COLOR1}[09]${NC} • ADD HOST/DOMAIN  $COLOR1│$NC"  
 echo -e "${COLOR1}│  [04]${NC} • TROJAN       [${YELLOW}Menu${NC}]   ${COLOR1}[10]${NC} • RENEW CERT       $COLOR1│$NC"  
-echo -e "${COLOR1}│  [05]${NC} • SS WS        [${YELLOW}Menu${NC}]   ${COLOR1}[11]${NC} • SETTINGS [${YELLOW}Menu${NC}]  $COLOR1│$NC"
+echo -e "${COLOR1}│  [05]${NC} • SW-Shock     [${YELLOW}Menu${NC}]   ${COLOR1}[11]${NC} • SETTINGS [${YELLOW}Menu${NC}]  $COLOR1│$NC"
 echo -e "${COLOR1}│  [06]${NC} • SET DNS      [${YELLOW}Menu${NC}]   ${COLOR1}[12]${NC} • INFO     [${YELLOW}Menu${NC}]  $COLOR1│$NC"
 echo -e "${COLOR1}│  [13]${NC} • REG IP       [${YELLOW}Menu${NC}]   ${COLOR1}[14]${NC} • SET BOT  [${YELLOW}Menu${NC}]  $COLOR1│$NC"
 echo -e "${COLOR1}│  [15]${NC} • UPDATE MENU  [${YELLOW}Menu${NC}]                           $COLOR1│$NC"
@@ -224,7 +234,7 @@ datediff() {
 mai="datediff "$Exp" "$DATE""
 
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐$NC"
-echo -e "$COLOR1│$NC Version     :${COLOR1} $(cat /opt/.ver) Latest Version              $COLOR1│$NC"
+echo -e "$COLOR1│$NC Version     :${COLOR1} $(cat /opt/.ver) Latest Version                $COLOR1│$NC"
 echo -e "$COLOR1│$NC Client Name : $Name                           $COLOR1│$NC"
 if [ $exp \> 1000 ];
 then
