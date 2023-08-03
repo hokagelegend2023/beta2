@@ -5,6 +5,7 @@ biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 echo -e " [INFO] Downloading Update File"
 sleep 2
 wget -q -O /usr/bin/menu "https://raw.githubusercontent.com/hokagelegend2023/beta2/main/update/menu.sh" && chmod +x /usr/bin/menu
+wget -q -O /usr/bin/pptpmenu "https://raw.githubusercontent.com/hokagelegend2023/beta2/main/update/pptpmenu.sh" && chmod +x /usr/bin/pptpmenu
 wget -q -O /usr/bin/update_beta2 "https://raw.githubusercontent.com/hokagelegend2023/update/main/update_beta2.sh" && chmod +x /usr/bin/update_beta2
 wget -q -O /usr/bin/menu-ss "https://raw.githubusercontent.com/hokagelegend2023/beta2/main/update/menu-ss.sh" && chmod +x /usr/bin/menu-ss
 wget -q -O /usr/bin/menu-vmess "https://raw.githubusercontent.com/hokagelegend2023/beta2/main/update/menu-vmess.sh" && chmod +x /usr/bin/menu-vmess
